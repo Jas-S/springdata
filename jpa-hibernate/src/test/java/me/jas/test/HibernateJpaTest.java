@@ -69,7 +69,7 @@ public class HibernateJpaTest {
                    执行插入
          */
         customer.setCustomerId(1L);
-        customer.setCustomerName("jason");
+        customer.setCustomerAddress("street1");
         entityManager.merge(customer);
         transaction.commit();
     }
