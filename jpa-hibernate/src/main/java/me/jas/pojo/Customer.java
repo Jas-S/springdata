@@ -10,6 +10,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customer")
 public class Customer {
+    /**
+     * @GeneratedValue:配置主键的生成策略
+     *      strategy
+     *          GenerationType.IDENTITY 自增，MySQL
+     *          GenerationType.SEQUENCE 序列，oracle
+     *          GenerationType.TABLE jpa提供的一种机制，通过一张数据库表的形式帮我们完成主键生成
+     *          GenerationType.AUTO 由程序自动选择主键生成策略
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -43,5 +51,14 @@ public class Customer {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", customerAddress='" + customerAddress + '\'' +
+                '}';
     }
 }

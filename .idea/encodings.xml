@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/jpa-hibernate/src/main/java/me/jas/pojo/Customer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpa-hibernate/src/test/java/me/jas/test/HibernateTest.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
