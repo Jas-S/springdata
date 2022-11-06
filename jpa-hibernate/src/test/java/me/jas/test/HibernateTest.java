@@ -21,7 +21,7 @@ public class HibernateTest {
     }
 
     @Test
-    public void addTest() {
+    public void addCustomerTest() {
         // 进行持久化操作
         try(Session session = sf.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -29,6 +29,17 @@ public class HibernateTest {
             customer.setCustomerName("jas");
             session.save(customer);
             transaction.commit();
+        }
+    }
+
+    @Test
+    public void getCustomerByIdTest() {
+        try(Session session = sf.openSession()) {
+            //Customer customer = session.find(Customer.class, 1L);
+            // 懒加载，直到customer对象被使用时才会执行查询。因此下面的分割线会先于sql出现。
+            Customer customer = session.load(Customer.class, 1L);
+            System.out.println("------------------------");
+            System.out.println(customer);
         }
     }
 }
