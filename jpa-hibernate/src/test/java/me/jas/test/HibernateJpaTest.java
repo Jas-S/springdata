@@ -29,4 +29,28 @@ public class HibernateJpaTest {
         entityManager.persist(customer);
         transaction.commit();
     }
+
+    @Test
+    public void getCustomerTest() {
+        EntityManager entityManager = factory.createEntityManager();
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        Customer customer = entityManager.find(Customer.class, 1L);
+        System.out.println("--------------");
+        System.out.println(customer);
+        transaction.commit();
+    }
+
+    @Test
+    public void lazyGetCustomerTest() {
+        EntityManager entityManager = factory.createEntityManager();
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        Customer customer = entityManager.getReference(Customer.class, 1L);
+        System.out.println("===============");
+        System.out.println(customer);
+        transaction.commit();
+    }
 }
