@@ -10,6 +10,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class HibernateTest {
     private SessionFactory sf;
 
@@ -41,6 +43,22 @@ public class HibernateTest {
             Customer customer = session.load(Customer.class, 1L);
             System.out.println("------------------------");
             System.out.println(customer);
+            transaction.commit();
+        }
+    }
+
+    @Test
+    public void getCustomersTest() {
+        try(Session session = sf.openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            String hql = "FROM Customer where customerName=:name";
+            List<Customer> customerList = session.createQuery(hql, Customer.class)
+                    .setParameter("name", "jas")
+                    .getResultList();
+
+            System.out.println(customerList);
+
             transaction.commit();
         }
     }
