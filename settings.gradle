@@ -1,0 +1,3 @@
+rootProject.name = 'springdata'
+include 'jpa-hibernate'
+
