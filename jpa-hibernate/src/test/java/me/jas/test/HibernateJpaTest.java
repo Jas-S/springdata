@@ -1,19 +1,19 @@
 package me.jas.test;
 
 import me.jas.pojo.Customer;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class HibernateJpaTest {
 
     EntityManagerFactory factory;
 
-    @BeforeEach
+    @BeforeMethod
     public void before_each() {
         factory = Persistence.createEntityManagerFactory("hibernateJPA");
     }

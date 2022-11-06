@@ -7,15 +7,15 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class HibernateTest {
     private SessionFactory sf;
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("/hibernate_config.xml").build();
         // 根据服务注册类创建一个元数据资源集，同时构建元数据并生成应用唯一的session工厂

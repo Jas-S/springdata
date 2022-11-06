@@ -12,12 +12,11 @@ repositories {
 dependencies {
     implementation 'org.hibernate:hibernate-entitymanager:5.6.12.Final'
     implementation 'org.apache.openjpa:openjpa-all:3.2.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testImplementation 'org.testng:testng:7.6.1'
 
     runtimeOnly 'com.mysql:mysql-connector-j:8.0.31'
 }
 
 test {
-    useJUnitPlatform()
+    useTestNG()
 }
