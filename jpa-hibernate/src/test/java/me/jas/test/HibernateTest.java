@@ -44,4 +44,15 @@ public class HibernateTest {
             transaction.commit();
         }
     }
+
+    @Test
+    public void removeCustomerByIdTest() {
+        try(Session session = sf.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            Customer customer = new Customer();
+            customer.setCustomerId(2L);
+            session.remove(customer);
+            transaction.commit();
+        }
+    }
 }
